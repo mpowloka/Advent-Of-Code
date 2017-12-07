@@ -1,10 +1,8 @@
 package common
 
-class CircularList <T>(private val inputList: ArrayList<T>): ArrayList<T>(inputList) {
-
+class CircularList <T>: ArrayList<T>() {
     override fun get(index: Int): T {
-        return if(index == inputList.size) inputList[0]
-        else inputList[index]
+        return if(index == size) this[0]
+        else super.get(index)
     }
-
 }
