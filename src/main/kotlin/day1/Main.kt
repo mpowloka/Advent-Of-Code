@@ -1,4 +1,4 @@
-package solution1
+package day1
 
 import common.CircularList
 import java.io.FileReader
@@ -8,8 +8,8 @@ fun main(args: Array<String>) {
     val captchaList = extractCaptcha()
 
 
-    println("Captcha to evaluate: ${captchaList.joinToString(separator = "", prefix = "", postfix = "")}")
-    println(captchaList.size)
+    println("Captcha to evaluate:\n ${captchaList.joinToString(separator = "", prefix = "", postfix = "")}")
+    println("Captcha size: ${captchaList.size}")
 
     println("Finished counting the first sum, it is: ${getSum(captchaList, 1)}")
 
@@ -31,7 +31,7 @@ private fun getSum(captchaList: CircularList<Int>, lookup: Int): Int {
 
 fun extractCaptcha(): CircularList<Int> {
     val result = CircularList<Int>()
-    val reader = FileReader("src\\main\\resources\\solution1-captcha.txt")
+    val reader = FileReader("src\\main\\resources\\day1-captcha.txt")
     reader.readText().toCharArray().forEach { result.add( Character.getNumericValue(it) ) }
     reader.close()
     return result
